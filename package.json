@@ -4,7 +4,7 @@
   "description": "Contact Keeper",
   "main": "server.js",
   "scripts": {
-    "start": "node server.js", 
+    "start": "node server.js",
     "server": "nodemon server.js"
   },
   "repository": {
