@@ -9,7 +9,7 @@ const Home = () => {
 
   useEffect(() => {
     loadUser();
-    //eslint-diable-next-line
+    //eslint-disable-next-line
   }, []);
 
   return (

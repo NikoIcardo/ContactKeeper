@@ -1,4 +1,4 @@
-import React, { useState, useReducer, useEffect, useContext } from 'react';
+import React, { useState, useEffect, useContext } from 'react';
 import AuthContext from '../../context/auth/authContext';
 import AlertContext from '../../context/alert/alertContext';
 
@@ -65,7 +65,7 @@ const Login = (props) => {
         <input
           type="submit"
           value="Login"
-          className="btn btn-primary btn-block" 
+          className="btn btn-primary btn-block"
           required
         />
       </form>
