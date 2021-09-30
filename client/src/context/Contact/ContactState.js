@@ -4,12 +4,14 @@ import ContactContext from './contactContext';
 import contactReducer from './contactReducer';
 import setAuthToken from '../../utils/setAuthToken';
 import {
+  GET_CONTACTS,
   ADD_CONTACT,
   DELETE_CONTACT,
   SET_CURRENT,
   CLEAR_CURRENT,
   UPDATE_CONTACT,
   FILTER_CONTACTS,
+  CLEAR_CONTACTS,
   CLEAR_FILTER,
   CONTACT_ERROR,
 } from '../Types';
@@ -23,6 +25,23 @@ const ContactState = (props) => {
   };
 
   const [state, dispatch] = useReducer(contactReducer, initialState);
+
+  // Get Contacts
+  const getContacts = async () => {
+    try {
+      const res = await axios.get('api/contacts');
+
+      dispatch({
+        type: GET_CONTACTS,
+        payload: res.data,
+      });
+    } catch (err) {
+      dispatch({
+        type: CLEAR_CONTACTS,
+        payload: err.response.message,
+      });
+    }
+  };
 
   // Add Contact
   const addContact = async (contact) => {
@@ -62,6 +81,10 @@ const ContactState = (props) => {
     dispatch({ type: FILTER_CONTACTS, payload: text });
   };
 
+  const clearContacts = () => {
+    dispatch({ type: CLEAR_CONTACTS });
+  };
+
   // Clear Filter
   const clearFilter = () => {
     dispatch({ type: CLEAR_FILTER });
@@ -74,12 +97,14 @@ const ContactState = (props) => {
         current: state.current,
         filtered: state.filtered,
         error: state.error,
+        getContacts,
         addContact,
         deleteContact,
         setCurrent,
         clearCurrent,
         updateContact,
         filterContacts,
+        clearContacts,
         clearFilter,
       }}
     >
