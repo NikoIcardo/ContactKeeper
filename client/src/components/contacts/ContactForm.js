@@ -31,6 +31,7 @@ const ContactForm = () => {
       addContact(contact);
       setContact({ name: '', email: '', phone: '', type: 'personal' });
     } else {
+      console.log(contact._id);
       updateContact(contact);
       clearCurrent();
     }
