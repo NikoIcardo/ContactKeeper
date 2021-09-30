@@ -1,6 +1,7 @@
 # ContactKeeper
-Contact Keeper Application for Brad Traversy's React Course
 
-MongoDB Atlas database with node.js and express API. 
+Contact Keeper Application
 
-React front end. 
+MongoDB Atlas database with node.js and express API.
+
+React front end.
