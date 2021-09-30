@@ -10,10 +10,6 @@ connectDB();
 // Init Middleware
 app.use(express.json({ extended: false }));
 
-app.get('/', (req, res) => {
-  res.json({ msg: 'Welcome to the Contact Keeper API...' });
-});
-
 //Define Routes
 app.use('/api/users', require('./routes/users'));
 app.use('/api/contacts', require('./routes/contacts'));
@@ -24,7 +20,7 @@ if (process.env.NODE_ENV === 'production') {
   //set static folder
   app.use(express.static('client/build'));
 
-  // If the home page is accessed, load the index html file. 
+  // If the home page is accessed, load the index html file.
   app.get('*', (req, res) =>
     res.sendFile(path.resolve(__dirname, 'client', 'build', 'index.html'))
   );
