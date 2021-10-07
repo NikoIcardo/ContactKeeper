@@ -21,7 +21,7 @@ router.get('/', auth, async (req, res) => {
   }
 });
 
-// @route   Post api/contacts
+// @route   POST api/contacts
 // @desc    post a contact
 // @access  Private
 
@@ -55,7 +55,7 @@ router.post(
   }
 );
 
-// @route   Post api/contacts/:id
+// @route   PUT api/contacts/:id
 // @desc    update a contact
 // @access  Private
 
